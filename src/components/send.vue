@@ -106,25 +106,24 @@ export default {
 
   },
   mounted(){
+    const Self = this
     firebase.auth().onAuthStateChanged((user) => {
-     let name = ''
-     let bal = ''
     if (user) {
       // User logged in already or has just logged in.
       //Return users name
       var refere = firebase.database().ref('clients/'+user.uid);
       refere.on('value', function(snapshot) {
-      name = snapshot.val().Name
-      //this.$set(name, snapshot.val().Name)
+      Self.name = snapshot.val().Name
+      
         });
       //return account balance
       var reb = firebase.database().ref('accounts/'+user.uid);
       reb.on('value', function(snapshot) {
-      bal = snapshot.val().balance 
+      Self.initb = snapshot.val().balance 
         });
     }
-      this.initb=bal
-      this.name=name
+      
+   
       console.log(this.initb)
     })
   }

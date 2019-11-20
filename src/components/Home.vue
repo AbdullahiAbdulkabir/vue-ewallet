@@ -53,7 +53,6 @@
 <script>
 
 import AuthLogin from './AuthLogin'
-
 export default {
   name: 'Home',
   data () {
@@ -79,24 +78,21 @@ export default {
 
   },
   mounted(){
-  
+    const Self = this
     firebase.auth().onAuthStateChanged((user) => {
-     let name = ''
-     let bal = ''
      let trans = {}
     if (user) {
       // User logged in already or has just logged in.
       //Return users name
       var refere = firebase.database().ref('clients/'+user.uid);
       refere.on('value', function(snapshot) {
-      name = snapshot.val().Name
-      //this.$set(name, snapshot.val().Name)
+      Self.name = snapshot.val().Name
+      
         });
         //return account balance
       var reb = firebase.database().ref('accounts/'+user.uid);
       reb.on('value', function(snapshot) {
-        bal = snapshot.val().balance 
-        console.log(bal)
+        Self.balance = snapshot.val().balance 
         });
         //return transaction
       var retr = firebase.database().ref('transactions/'+user.uid);
@@ -104,18 +100,18 @@ export default {
       trans = snapshot.val() 
         });
     } else {
-      console.log("sds")
+      console.log("not logged in")
       // User not logged in or has just logged out.
     }
-       trans = { "type":trans.type, "amount":trans.amount, "contact":trans.contact}
-      this.balance=bal
-      this.transa.push(trans)
-      this.name=name
-      
-        
+       //trans = { "type":trans.type, "amount":trans.amount, "contact":trans.contact}
+      //this.balance=bal
+      this.transa.push({ "type":trans.type, "amount":trans.amount, "contact":trans.contact})
+      //this.name=name
+          
   });
 
   
+        console.log(Self.name)
   }
  
 }
