@@ -121,17 +121,5 @@ export default {
 
 <style>
 
-.home .acct,.tran{
-  color:black;
-
-}
-.home .acct .panel-body{
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.home .tran .panel-body #tabhead th{
-  text-align: inherit;
-}
 
 </style>

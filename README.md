@@ -1,4 +1,4 @@
-# hello-vue
+# e-wallet
 
 > A Vue.js project
 

@@ -1,0 +1,41 @@
+
+
+.form-inline input{
+  background-color: #363a3d;
+  border-color: #2e94a7;
+  color:white;
+  padding: 24px; 
+}
+.form-inline button {
+	background-color: #242829;
+    border-color: #2e94a7;
+}
+.form-inline button: hover {
+	background-color: #2e94a7;
+    
+}
+.signin{
+  display:none;
+}
+
+.home .acct,.tran{
+  color:black;
+
+}
+.home .acct .panel-body{
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.home .tran .panel-body #tabhead th{
+  text-align: inherit;
+}
+
+
+.form-inline button: hover {
+  background-color: #2e94a7;
+    
+}
+.signin{
+  display:none;
+}

@@ -18,8 +18,6 @@ export default {
 </script>
 
 <style>
-
-
 h1, h2 {
   font-weight: normal;
   font-family: Avenir;

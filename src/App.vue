@@ -21,7 +21,7 @@ export default {
   },
   components: {AuthLogin,Home, Nav},
   router
-  
+
 }
 </script>
 
@@ -31,18 +31,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  
   margin-top: 60px;
-
 }
 
-h1, h2 {
-  font-weight: normal;
-  font-family: Avenir;
-    color: #fff;
-    border-bottom: 3px solid #2e94a7;
-    width: 120px;
-    font-size: 29px;
-}
 
 </style>

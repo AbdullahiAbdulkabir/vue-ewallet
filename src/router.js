@@ -13,6 +13,16 @@ Vue.use(Router)
 const router = new Router({
 	routes: [
 	{
+		path: '/signup',
+		component: Signup,
+		name: 'Signup',
+	},
+	{
+		path: '/auth',
+		component: AuthLogin,
+		name: 'AuthLogin',
+	},
+	{
 		path: '*',
 		redirect: '/auth'
 	},
@@ -39,16 +49,6 @@ const router = new Router({
 		meta:{
 			requireAuth:true
 		}
-	},
-	{
-		path: '/signup',
-		component: Signup,
-		name: 'Signup',
-	},
-	{
-		path: '/auth',
-		component: AuthLogin,
-		name: 'AuthLogin',
 	}
 	]
 

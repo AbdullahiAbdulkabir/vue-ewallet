@@ -117,7 +117,7 @@ export default {
   
     firebase.auth().onAuthStateChanged((user) => {
     
-     let bal = ''
+  
     if (user) {
       // User logged in already or has just logged in.
       //Return users name
@@ -135,8 +135,7 @@ export default {
       console.log("sdfs")
       // User not logged in or has just logged out.
     }
-      //this.balance=bal
-      //this.name=name
+   
      // console.log(this.name + this.balance)
         
   });

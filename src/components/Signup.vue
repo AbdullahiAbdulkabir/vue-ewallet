@@ -63,22 +63,6 @@ export default{
 }
 </script>
 <style >
-.form-inline input{
-  background-color: #363a3d;
-  border-color: #2e94a7;
-  color:white;
-  padding: 24px; 
-}
-.form-inline button {
-  background-color: #242829;
-    border-color: #2e94a7;
-}
-.form-inline button: hover {
-  background-color: #2e94a7;
-    
-}
-.signin{
-  display:none;
-}
+
 
 </style>

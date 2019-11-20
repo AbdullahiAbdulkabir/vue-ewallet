@@ -7,27 +7,20 @@
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
     <span>Not yet SignUp? <router-link to="/signup">Sign Up</router-link></span>
-
-
-    
   </div>
 </template>
 
 <script>
-
-
 export default{
-	name: 'AuthLogin',
+  name: 'AuthLogin',
   data() {
     return {
     username: '',
       email: '',
       password: ''
-      
     }
   },
   methods: {
-
     login(e){
     let rout = this.$router
     e.preventDefault()
@@ -46,23 +39,3 @@ export default{
 }
 
 </script>
-<style >
-.form-inline input{
-  background-color: #363a3d;
-  border-color: #2e94a7;
-  color:white;
-  padding: 24px; 
-}
-.form-inline button {
-	background-color: #242829;
-    border-color: #2e94a7;
-}
-.form-inline button: hover {
-	background-color: #2e94a7;
-    
-}
-.signin{
-  display:none;
-}
-
-</style>

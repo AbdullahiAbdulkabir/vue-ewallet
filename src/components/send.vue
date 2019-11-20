@@ -134,16 +134,4 @@ export default {
 </script>
 
 <style>
-
-.home .acct,.tran{
-  color:black;
-
-}
-.home .acct .panel-body{
-  font-size: 28px;
-  font-weight: bold;
-}
-
-
-
 </style>

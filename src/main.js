@@ -1,11 +1,8 @@
-
 import Vue from 'vue'
 import App from './App.vue'
-import Router from './router.js'
+import router from './router.js'
 
-
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyDOrFe-pJXVs-TbKuR0AvYXhW2UW14YYw0",
     authDomain: "e-wallet-8e021.firebaseapp.com",
     databaseURL: "https://e-wallet-8e021.firebaseio.com",
@@ -17,22 +14,9 @@ import Router from './router.js'
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-
-
 new Vue({
   el: '#app',
-  Router,
-  render: h => h(App)
+  router,
+  render: h => h(App),
+
 })
-
-
-// new Vue({
-// 		el: '#start',
-// 		data: {
-// 			message: "Hello World"
-			
-// 		},
-// 		mounted(){
-// 			// axios.get('http://localhost:8000/skills').then(response=> this.skills=response.data)
-// 		}
-// 	})
