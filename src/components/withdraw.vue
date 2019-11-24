@@ -5,14 +5,14 @@
      <div>
       <router-link to="/">Home </router-link>
       <router-link to="/deposit">Deposit </router-link>
-      <router-link to="/withdraw">withdraw </router-link>
+      <router-link to="/withdraw">Send </router-link>
     <button class="btn btn-danger" @click="logout">logout</button>
     </div>
    <br/><br/>
    
     <div class="col-md-12 acct">
       <div class="panel panel-primary">
-        <div class="panel panel-heading">Withdraw</div>
+        <div class="panel panel-heading">Send</div>
         <div class="panel-body">
         <div class="col-md-12 acct">
       <div class="panel panel-primary">
@@ -38,7 +38,7 @@
               
               </div>
               <div class="form-group">
-              <button type="submit" class="btn btn-primary">WITHDRAW</button>
+              <button type="submit" class="btn btn-primary">Send</button>
               </div>
 
     </form>
@@ -73,7 +73,7 @@ export default {
     amount: '',
     description: '',
     balance: '',
-    type: 'withdraw'
+    type: 'Send'
     // time_performed: ''
 
     }
