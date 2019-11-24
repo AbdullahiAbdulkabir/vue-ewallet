@@ -19,7 +19,7 @@
           <th>Date</th>
           <th>Type</th>
           <th>Amount</th>
-          <th>Actions</th>
+          <th>Contact</th>
           </thead>
         <tbody>
           <tr v-for="tran in transa">
