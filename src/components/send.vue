@@ -4,7 +4,7 @@
       <h3><b>Dashboard</b></h3>
      <div>
       <router-link to="/">Home </router-link>
-      <router-link to="/send">Send </router-link>
+      <router-link to="/deposit">Deposit </router-link>
       <router-link to="/withdraw">withdraw </router-link>
     <button class="btn btn-danger" @click="logout">logout</button>
     </div>
@@ -12,20 +12,20 @@
    
     <div class="col-md-12 acct">
       <div class="panel panel-primary">
-        <div class="panel panel-heading">Send Fund</div>
+        <div class="panel panel-heading">Deposit Fund</div>
         <div class="panel-body">
 
         <form  class="" @submit="send" >
-          <div class="col-md-6">
-              <div class="form-group">
+          <!-- <div class="col-md-6"> -->
+              <!-- <div class="form-group">
                   <label for="exampleInputPassword1">Receiver Contacts</label>
                   <input type="text" class="form-control" v-model="contact" placeholder="e.g 254702244756">
-              </div>
-              </div>
+              </div> -->
+              <!-- </div> -->
               <div class="col-md-6">
               <div class="form-group">
                   <label for="exampleInputFile">Amount</label>
-                  <input type="text" class="form-control" v-model="amount" placeholder="amount to send">
+                  <input type="text" class="form-control" v-model="amount" placeholder="amount to deposit">
               </div>
               </div>
               <div class="form-group">
@@ -34,7 +34,7 @@
               
               </div>
               <div class="form-group">
-              <button type="submit" class="btn btn-primary">SEND MONEY</button>
+              <button type="submit" class="btn btn-primary">DEPOSIT MONEY</button>
               </div>
 
     </form>
@@ -58,38 +58,38 @@ export default {
   data () {
     return {
     name:'',
-    contact: '',
     description: '',
-    type: 'send',
+    type: 'Deposit',
     amount: '',
-    initb:''
+    initb:'',
+    time: 'ServerValue.TIMESTAMP'
     }
   },
   components: {AuthLogin},
   methods: {
   send(e){
+    const Self = this
+    let i = 0
     e.preventDefault()
-    let init = this.initb
-    let am= this.amount
     let rout = this.$router
-    let stor = {
-          "amount": this.amount,
-          "contact": this.contact,
-          "description": this.description,
-          "type": this.type
-          }
+  
     var FirebaseRef = firebase.database().ref()
     firebase.auth().onAuthStateChanged((user) => {
-    
-    if (init>=am) {
-     let bal = init-am
-      FirebaseRef.child('transactions').child(user.uid).set(stor)
+     let bal = parseInt(Self.initb)+parseInt(Self.amount)
+     i=i+=1
+      FirebaseRef.child('transactions').child(user.uid).set( {
+            "trans_id": Math.floor((Math.random()*10000000)+i),
+          "amount": Self.amount,    
+          "description": Self.description,
+          "type": Self.type,
+          "time_performed": firebase.database.ServerValue.TIMESTAMP
+
+          })
       firebase.database().ref('accounts/'+user.uid+'/balance').set(bal)
-      alert("sent")
+      
+      // console.log(typeof(bal))
+      alert("Deposited")
       rout.replace('/')
-    }else{
-      alert("insufficient balance")
-    }
     })
     
   },
@@ -123,7 +123,6 @@ export default {
         });
     }
       
-   
       console.log(this.initb)
     })
   }

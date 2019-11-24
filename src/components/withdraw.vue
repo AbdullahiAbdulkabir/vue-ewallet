@@ -4,7 +4,7 @@
       <h3><b>Dashboard</b></h3>
      <div>
       <router-link to="/">Home </router-link>
-      <router-link to="/send">Send </router-link>
+      <router-link to="/deposit">Deposit </router-link>
       <router-link to="/withdraw">withdraw </router-link>
     <button class="btn btn-danger" @click="logout">logout</button>
     </div>
@@ -69,28 +69,46 @@ export default {
   data () {
     return {
     name: '',
-    balance: ''
+    contact: '',
+    amount: '',
+    description: '',
+    balance: '',
+    type: 'withdraw'
+    // time_performed: ''
+
     }
   },
   components: {AuthLogin},
   methods: {
     withdraw(e){
+      const Self = this
     e.preventDefault()
-    let init = this.initb
+    let init = this.balance
     let am= this.amount
     let rout = this.$router
-    let stor = {
-          "amount": this.amount,
-          "contact": this.contact,
-          "description": this.description,
-          "type": this.type
-          }
+    // let stor = {
+    //       "amount": this.amount,
+    //       "contact": this.contact,
+    //       "description": this.description,
+    //       "type": this.type
+    //       }
+          // console.log(stor)
     var FirebaseRef = firebase.database().ref()
     firebase.auth().onAuthStateChanged((user) => {
-    
+    let i = 0
     if (init>=am) {
      let bal = init-am
-      FirebaseRef.child('transactions').child(user.uid).set(stor)
+     
+      i = i+=1
+      FirebaseRef.child('transactions').child(user.uid).set( {
+          "trans_id": Math.floor((Math.random()*10000000)+i),
+          "amount": Self.amount,
+          "contact": Self.contact,
+          "description": Self.description,
+          "type": Self.type,
+          "time_performed": firebase.database.ServerValue.TIMESTAMP
+
+          })
       firebase.database().ref('accounts/'+user.uid+'/balance').set(bal)
       alert("sent")
       rout.replace('/')

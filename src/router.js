@@ -35,9 +35,9 @@ const router = new Router({
 		}
 	},
 	{
-		path: '/send',
+		path: '/deposit',
 		component: Send,
-		name: 'Send',
+		name: 'Deposit',
 		meta:{
 			requireAuth:true
 		}

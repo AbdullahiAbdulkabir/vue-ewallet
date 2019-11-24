@@ -4,7 +4,7 @@
       <h3><b>Dashboard</b></h3>
     <div>
       <router-link to="/">Home </router-link>
-      <router-link to="/send">Send </router-link>
+      <router-link to="/deposit">Deposit </router-link>
       <router-link to="/withdraw">withdraw </router-link>
     <button class="btn btn-danger" @click="logout">logout</button>
     </div>
@@ -23,8 +23,8 @@
           </thead>
         <tbody>
           <tr v-for="tran in transa">
-            <td>transc_id</td>
-            <td>2019-09-12</td>
+            <td>{{tran.trans_id}}</td>
+            <td>{{tran.time}}</td>
             <td>{{tran.type}}</td>
             <td>{{tran.amount}}</td>
             <td>{{tran.contact}}</td>
@@ -105,13 +105,13 @@ export default {
     }
        //trans = { "type":trans.type, "amount":trans.amount, "contact":trans.contact}
       //this.balance=bal
-      this.transa.push({ "type":trans.type, "amount":trans.amount, "contact":trans.contact})
+      this.transa.push({ "type":trans.type, "amount":trans.amount, "contact":trans.contact, "time": trans.time_performed, "trans_id": trans.trans_id})
       //this.name=name
           
   });
 
   
-        console.log(Self.name)
+       
   }
  
 }
