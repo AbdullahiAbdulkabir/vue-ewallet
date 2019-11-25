@@ -5,7 +5,7 @@
      <div>
       <router-link to="/">Home </router-link>
       <router-link to="/deposit">Deposit </router-link>
-      <router-link to="/withdraw">withdraw </router-link>
+      <router-link to="/withdraw">Send </router-link>
     <button class="btn btn-danger" @click="logout">logout</button>
     </div>
    <br/><br/>

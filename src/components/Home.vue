@@ -16,7 +16,7 @@
          <table class="table table-hover">
          <thead id="tabhead">
           <th>Transaction ID</th>
-          <th>Date</th>
+          <th >Date</th>
           <th>Type</th>
           <th>Amount</th>
           <th>Contact</th>
@@ -24,7 +24,7 @@
         <tbody>
           <tr v-for="tran in transa">
             <td>{{tran.trans_id}}</td>
-            <td>{{tran.time}}</td>
+            <td v-if="tran.time != 'Invalid Date'">{{tran.time}}</td>
             <td>{{tran.type}}</td>
             <td>{{tran.amount}}</td>
             <td>{{tran.contact}}</td>
@@ -105,7 +105,7 @@ export default {
     }
        //trans = { "type":trans.type, "amount":trans.amount, "contact":trans.contact}
       //this.balance=bal
-      this.transa.push({ "type":trans.type, "amount":trans.amount, "contact":trans.contact, "time": trans.time_performed, "trans_id": trans.trans_id})
+      this.transa.push({ "type":trans.type, "amount":trans.amount, "contact":trans.contact, "time": new Date(trans.time_performed).toDateString(), "trans_id": trans.trans_id})
       //this.name=name
           
   });
