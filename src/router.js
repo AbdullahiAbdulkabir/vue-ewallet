@@ -24,18 +24,6 @@ const router = new Router({
 		name: 'AuthLogin',
 	},
 	{
-		path: '*',
-		redirect: '/auth'
-	},
-	{
-		path: '/',
-		component: Home,
-		name: 'Home',
-		meta:{
-			requireAuth:true
-		}
-	},
-	{
 		path: '/deposit',
 		component: Send,
 		name: 'Deposit',
@@ -47,6 +35,18 @@ const router = new Router({
 		path: '/withdraw',
 		component: withdraw,
 		name: 'withdraw',
+		meta:{
+			requireAuth:true
+		}
+	},
+	{
+		path: '*',
+		redirect: '/auth'
+	},
+	{
+		path: '/',
+		component: Home,
+		name: 'Home',
 		meta:{
 			requireAuth:true
 		}
